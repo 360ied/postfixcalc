@@ -1,7 +1,3 @@
-{-# LANGUAGE ExtendedDefaultRules #-}
-{-# LANGUAGE FlexibleInstances #-}
-{-# LANGUAGE OverloadedStrings #-}
-
 module Main where
 
 import System.Environment
