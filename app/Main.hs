@@ -15,8 +15,8 @@ exec :: [String] -> [Double] -> [Double]
 exec [] stack = stack
 exec (token : tokens) stack =
   case readMaybe token :: Maybe Double of
-    Just n -> exec tokens (n : stack)
-    Nothing -> exec tokens $ handleOperator token stack
+    Just n -> exec tokens (n : stack) -- token is a number, push token to stack
+    Nothing -> exec tokens $ handleOperator token stack -- token is an operator, execute the operator
 
 main :: IO ()
 main = do
