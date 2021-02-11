@@ -22,4 +22,6 @@ main :: IO ()
 main = do
   args <- getArgs
   let stack = exec args []
-  print stack
+  if length stack == 1
+    then print $ head stack
+    else print stack
