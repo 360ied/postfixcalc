@@ -1,6 +1,26 @@
+{-# LANGUAGE ExtendedDefaultRules #-}
+{-# LANGUAGE FlexibleInstances #-}
+{-# LANGUAGE OverloadedStrings #-}
+
 module Main where
 
-import Lib
+import System.Environment
+import Text.Read
 
-main :: IO ()
-main = someFunc
+handleOperator op (a : b : s) =
+  case op of
+    "+" -> b + a : s
+    "-" -> b - a : s
+    "*" -> b * a : s
+    "/" -> b / a : s
+
+exec [] stack = stack
+exec (token : tokens) stack =
+  case readMaybe token :: Maybe Double of
+    Just n -> exec tokens (n : stack)
+    Nothing -> exec tokens $ handleOperator token stack
+
+main = do
+  args <- getArgs
+  let stack = exec args []
+  print stack
