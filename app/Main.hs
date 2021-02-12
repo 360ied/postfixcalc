@@ -3,7 +3,7 @@ module Main where
 import System.Environment (getArgs)
 import Text.Read (readMaybe)
 
-handleOperator :: Floating a => [Char] -> [a] -> [a]
+handleOperator :: Floating a => String -> [a] -> [a]
 handleOperator op [] =
   case op of
     "pi" -> [pi]
