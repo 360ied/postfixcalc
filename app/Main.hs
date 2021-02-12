@@ -3,13 +3,14 @@ module Main where
 import System.Environment (getArgs)
 import Text.Read (readMaybe)
 
-handleOperator :: Fractional a => String -> [a] -> [a]
+handleOperator :: Floating a => [Char] -> [a] -> [a]
 handleOperator op (a : b : s) =
   case op of
     "+" -> b + a : s
     "-" -> b - a : s
     "*" -> b * a : s
     "/" -> b / a : s
+    "^" -> b ** a : s
 
 exec :: [String] -> [Double] -> [Double]
 exec [] stack = stack
