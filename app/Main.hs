@@ -1,6 +1,5 @@
 module Main where
 
-import Debug.Trace
 import System.Environment (getArgs)
 import Text.Read (readMaybe)
 
